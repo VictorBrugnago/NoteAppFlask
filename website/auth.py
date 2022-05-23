@@ -45,8 +45,7 @@ def sign_up():
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email já cadastrado!', category='error')
-
-        if len(email) < 4:
+        elif len(email) < 4:
             flash('O endereço de email precisa ser maior que 3 caracteres.', category='error')
         elif len(first_name) < 2:
             flash('O primeiro nome precisa ser maior que 1 caracteres.', category='error')
@@ -59,7 +58,7 @@ def sign_up():
                                                                                                 method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             flash('Conta criada com sucesso!', category='success')
             return redirect(url_for('views.home'))
     return render_template('sign_up.html', user=current_user)
