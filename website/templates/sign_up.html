@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Changed{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <h3 align="center">Cadastre-se</h3>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Entre com o email" />
+    </div>
+    <div class="form-group">
+        <label for="firstName">Nome:</label>
+        <input type="text" class="form-control" id="firstName" name="firstName"
+               placeholder="Entre com o primeiro nome" />
+    </div>
+    <div class="form-group">
+        <label for="password1">Senha:</label>
+        <input type="password" class="form-control" id="password1" name="password1"
+               placeholder="Entre com a senha" />
+    </div>
+    <div class="form-group">
+        <label for="password2">Confirme a senha:</label>
+        <input type="password" class="form-control" id="password2" name="password2"
+               placeholder="Confirme a sua senha" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}
